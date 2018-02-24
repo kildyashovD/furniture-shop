@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>BAZAR SHOP</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="uikit-3.0.0-beta.39/css/uikit.min.css">
+</head>
+
+<body>
+
+	<!-- HEADER -->
+
+	<header class="header">
+
+		<div class="header-top-bar">
+			<div class="container-logged">
+				<a class="container-logged__login" onclick="document.getElementById('loginModal').style.display='block'"><i class="container-logged__icon fa fa-user-o" aria-hidden="true"></i>Login</a>
+				<a class="container-logged__register" onclick="document.getElementById('signUpModal').style.display='block'"><i class="container-logged__icon fa fa-lock" aria-hidden="true"></i>Sign Up</a>
+			</div>
+			<div class="menu-icon" onclick="showMenu();showNav()" id="menuResponsiveButton">
+				<div class="menu-icon__bar1"></div>
+				<div class="menu-icon__bar2"></div>
+				<div class="menu-icon__bar3"></div>
+			</div>
+		</div>
+		
+				<!-- LOGIN MODAL -->
+
+		<div class="login-modal" id="loginModal">
+
+			<form class="login-modal__content bounceInDown fadeOutUp">
+
+				<span onclick="document.getElementById('loginModal').style.display='none'" class="login-modal__close modal__close" title="Close Modal">&times;</span>
+
+				<div class="login-modal__user-icon">
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+				</div>
+
+				<div class="login-modal__form-data">
+
+					<input type="text" class="login-modal__uname" placeholder="Your username">
+
+					<input type="text" class="login-modal__password" placeholder="Your password">
+
+					<label class="login-modal__remember">
+					<input type="checkbox" checked="checked" name="remember"> Remember me
+					</label>
+
+					<button type="button" class="login-modal__login-btn">LOGIN</button>
+
+				</div>
+
+			</form>
+
+		</div>
+
+		<!-- SIGN UP MODAl -->
+
+		<div class="sign-up-modal" id="signUpModal">
+
+			<form action="" class="sign-up-modal__content bounceInDown">
+
+				<span onclick="document.getElementById('signUpModal').style.display='none'" class="sign-up-modal__close modal__close" title="Close Modal">&times;</span>
+
+				<h2 class="sign-up-modal__heading font-l">Sign Up</h2>
+
+				<p class="sign-up-modal__paragraph">Please fill in this form to create an account.</p>
+
+				<input type="text" class="sign-up-modal__email" placeholder="Your email">
+
+				<input type="text" class="sign-up-modal__password" placeholder="Your password">
+
+				<input type="text" class="sign-up-modal__password" placeholder="Repeat your password">
+
+				<label class="sign-up-modal__remember">
+				<input type="checkbox" checked="checked" name="remember"> Remember me</label>
+
+				<button type="button" class="sign-up-modal__login-btn">LOGIN</button>
+
+			</form>
+
+		</div>
+
+		<!-- HEADER MAIN BAR -->
+
+		<div class="header-main-bar header-main-bar_theme_black">
+
+			<div class="container font-white  container_width_1200 flex-row">
+
+				<div class="call-number header-main-bar__item_width_170 flex-row">
+					<i class="fa fa-mobile fa-3x call-number__icon" aria-hidden="true"></i>
+					<p class="call-number__item">2300 - 3560 - 222</p>
+				</div>
+
+				<div class="logo header-main-bar__item_width_170">
+					<img src="image/logo/layer-1.png" alt="" class="logo__img">
+				</div>
+
+				<div class="cart header-main-bar__item_width_170 header-main-bar__item_responsive-width_100 flex-row">
+					<i class="fa fa-2x fa-shopping-basket cart__icon_style_header" aria-hidden="true"></i>
+					<p class="cart__number" id="cartNumber">0</p>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="header-main-nav flex-row header-main-nav_shadow ">
+			<form action="" class="header__form form col-4">
+
+				<input type="text" placeholder="Search products" name="search" class="form__search">
+				<button type="submit" class="form__button"><i class="fa fa-search"></i></button>
+			</form>
+
+			<ul class="main-navigation flex-row col-6" id="mainNav">
+				<li class="main-navigation__item"><a href="index.html" class="main-navigation__link">home</a></li>
+				<li class="main-navigation__item"><a href="furniture/furniture.html" class="main-navigation__link">furniture</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">chair</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">table</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">sofa</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">bedroom</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">blog</a></li>
+			</ul>
+
+		</div>
+
+	</header>
+
+	<!-- BREADCRUMB -->
+
+	<div class="breadcrumb-nav breadcrumb-nav_bg breadcrumb-nav_height_380 font-white">
+
+		<div class="breadcrumb-nav__opacity-box"></div>
+
+		<ul class="breadcrumb-nav__item breadcrumb breadcrumb-nav__item_position_top-right">
+
+			<li class="breadcrumb__item"><a href="" class="breadcrumb__link font-gray">Home</a></li>
+			<li class="breadcrumb__item"><a href="" class="breadcrumb__link font-gray">Furniture</a></li>
+			<li class="breadcrumb__item"><a href="" class="breadcrumb__link font-gray">Chair</a></li>
+			<li class="breadcrumb__item"><a href="" class="breadcrumb__link font-gray">Product</a></li>
+		</ul>
+
+	</div>
+
+	<div class="block block_border block_position_relative block_z-index block_margin-t_minus container_width_1200 flex-row">
+
+
+		<div class="block__item col-5">
+
+			<div class="b-gallery b-gallery_margin">
+
+				<div class="header b-gallery__header">
+
+					<h2 class="header__heading header__heading_text-style header__heading_border-bottom">new furniture</h2>
+
+				</div>
+
+				<!-- Container for the image gallery -->
+
+				<div class="b-gallery__slideshow b-gallery__slideshow_margin_top slideshow-gallery" id="gallerySlideShow">
+
+					<!-- Full-width images with number text -->
+
+					<!-- SLIDE 1 -->
+
+					<div class="slideshow-gallery__slide slideshow-gallery__slide_size_s">
+
+						<img src="image/chair/ParmeleeChair.jpg" alt="" class="slideshow-gallery__image">
+
+					</div>
+
+					<!-- SLIDE 2 -->
+
+					<div class="slideshow-gallery__slide slideshow-gallery__slide_size_s">
+
+						<img src="image/chair/chair2.jpg" alt="" class="slideshow-gallery__image">
+
+					</div>
+
+					<!-- SLIDE 3 -->
+
+					<div class="slideshow-gallery__slide slideshow-gallery__slide_size_s">
+
+						<img src="image/chair/chair3.jpg" alt="" class="slideshow-gallery__image">
+
+
+					</div>
+
+					<!-- SLIDE 4 -->
+
+					<div class="slideshow-gallery__slide slideshow-gallery__slide_size_s">
+
+						<img src="image/table/table1.jpg" alt="" class="slideshow-gallery__image">
+
+
+					</div>
+
+					<!-- SLIDE 5 -->
+
+					<div class="slideshow-gallery__slide slideshow-gallery__slide_size_s">
+
+						<img src="image/bed/bed1.jpg" alt="" class="slideshow-gallery__image">
+
+					</div>
+
+
+
+
+					<!-- Next and previous buttons -->
+
+					<a class="slideshow-gallery__prev slideshow-gallery__prev_position_left">&#10094;</a>
+					<a class="slideshow-gallery__next slideshow-gallery__prev_position_right">&#10095;</a>
+
+					<div class="slideshow-gallery__container slideshow-gallery__container_margin flex-row thumbail">
+
+						<!-- THUMBAIL 1 -->
+
+						<div class="thumbnail__item thumbnail__active slideshow-gallery__thumbail slideshow-gallery__thumbail_size_s">
+
+							<img src="image/chair/ParmeleeChair.jpg" alt="" class="slideshow-gallery__image">
+
+						</div>
+
+						<!-- THUMBAIL 2 -->
+
+						<div class="thumbnail__item slideshow-gallery__thumbail slideshow-gallery__thumbail_size_s">
+
+							<img src="image/chair/chair2.jpg" alt="" class="slideshow-gallery__image">
+
+						</div>
+
+						<!-- THUMBAIL 3 -->
+
+						<div class="thumbnail__item slideshow-gallery__thumbail slideshow-gallery__thumbail_size_s">
+
+							<img src="image/chair/chair3.jpg" alt="" class="slideshow-gallery__image">
+
+						</div>
+
+						<!-- THUMBAIL 4 -->
+
+						<div class="thumbnail__item slideshow-gallery__thumbail slideshow-gallery__thumbail_size_s">
+
+							<img src="image/table/table1.jpg" alt="" class="slideshow-gallery__image">
+
+						</div>
+
+						<!-- THUMBAIL 5 -->
+
+						<div class="thumbnail__item slideshow-gallery__thumbail slideshow-gallery__thumbail_size_s">
+
+							<img src="image/bed/bed1.jpg" alt="" class="slideshow-gallery__image">
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- PRODUCT TUB -->
+
+		<div class="block__item col-7 product-tub">
+
+			<h2 class="product-tub__product-name">Sunbaby Magic Bear Chair</h2>
+
+
+			<!-- RATING -->
+
+			<div class="product-tub__rating rating">
+
+				<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+				<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+				<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+				<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+				<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+
+				<span class="rating__rewies rewies">(0 reviews)</span>
+
+				<span class="rating__devider">|</span>
+
+				<span class="rating__add-rewie">Add Your Review</span>
+
+			</div>
+
+			<div class="product-tub__price">
+
+				<span class="product-tub__price-old price-old">$35.00</span>
+
+				<span class="product-tub__price-new price-new">$30.00</span>
+
+			</div>
+
+			<div class="product-tub__cart product-tub__cart_border-btm cart">
+
+				<div class="cart__item cart__item_flex_baseline">
+
+					<p class="add-product add-product_size_m"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+					
+					<div class="product-tub__icon-box">
+
+						<a href="#" class="product-tub__icon-like icon-like fa fa-heart-o"></a>
+
+						<a href="#" class="product-tub__icon-envelope icon-envelope fa fa-envelope-o"></a>
+					
+					</div>
+
+				</div>
+
+				<div class="cart__item cart__item_flex_baseline cart__item_padding-top_10">
+
+					<div class="product-qty product-qty_padding-top_12">
+
+						<span class="product-qty__label">Quantity:</span>
+
+						<span class="product-qty__count">0</span>
+
+					</div>
+					
+					<div class="product-tub__icon-box product-tub__icon-box_margin-top_15">
+
+						<a href="" class="product-tub__icon-minus fa fa-minus"></a>
+
+						<a href="#" class="product-tub__icon-plus fa fa-plus"></a>
+					
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="product-tub__overview overview">
+
+				<h2 class="overview__heading">Quick Overview</h2>
+
+				<p class="overview__paragraph">Nam tristique porta ligula, vel viverra sem eleifend nec. Nulla sed purus augue, eu euis mod tellus. Nam mattis eros tis sagittis. Vestibulum suscipit cursus biben.</p>
+
+			</div>
+
+			<div class="product-tub__info info">
+
+				<p class="info__avaliability">Availability: <span class="info__avaliability-status">In Stock</span></p>
+
+				<p class="info__category">Category: <span class="info__category-name">Furniture</span></p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- NEW FURNITURE -->
+
+	<div class="b-new-furniture container_width_1200 b-new-furniture_margin_top">
+
+		<div class="b-new-furniture__header b-new-furniture__header_border-bottom header flex-row">
+
+			<h2 class="header__heading header__heading_text-style">new furniture</h2>
+
+
+			<div class="header__dots dots flex-row">
+
+				<div class="dots__item"></div>
+				<div class="dots__item"></div>
+				<div class="dots__item"></div>
+
+			</div>
+
+		</div>
+
+		<!-- PRODUCT TILE -->
+
+		<div class="b-new-furniture__main flex-row">
+
+			<!-- PRODUCT TILE 1 -->
+
+			<div class="product-tile product-tile_size_s">
+
+				<div class="product-tile__center product-tile__image_size_m">
+					<img src="image/hot-deals/ASHY-365674.jpg" class="product-tile__image" alt="">
+					<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+					<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+				</div>
+
+				<div class="product-tile__footer product-tile__footer_size_m">
+
+					<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+					<div class="product-tile__rating">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</div>
+
+					<hr class="product-tile__devider">
+
+					<div class="product-tile__price-old_position price-old">$35.00</div>
+
+					<div class="product-tile__price-new_position price-new">
+						$30.00
+					</div>
+
+					<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+				</div>
+
+			</div>
+
+			<!-- PRODUCT TILE 2 -->
+
+			<div class="product-tile product-tile_size_s">
+
+				<div class="product-tile__center product-tile__image_size_m">
+					<img src="image/chair/chair2.jpg" alt="">
+					<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+					<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+				</div>
+
+				<div class="product-tile__footer product-tile__footer_size_m">
+
+					<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+					<div class="product-tile__rating">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</div>
+
+					<hr class="product-tile__devider">
+
+					<div class="product-tile__price-old_position price-old">$35.00</div>
+
+					<div class="product-tile__price-new_position price-new">
+						$30.00
+					</div>
+
+					<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+				</div>
+
+			</div>
+
+			<!-- PRODUCT TILE 3 -->
+
+			<div class="product-tile product-tile_size_s">
+
+				<div class="product-tile__center product-tile__image_size_m">
+					<img src="image/chair/chair6.jpg" alt="">
+					<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+					<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+				</div>
+
+				<div class="product-tile__footer product-tile__footer_size_m">
+
+					<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+					<div class="product-tile__rating">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</div>
+
+					<hr class="product-tile__devider">
+
+					<div class="product-tile__price-old_position price-old">$35.00</div>
+
+					<div class="product-tile__price-new_position price-new">
+						$30.00
+					</div>
+
+					<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+				</div>
+
+			</div>
+
+			<!-- PRODUCT TILE 4 -->
+
+			<div class="product-tile product-tile_size_s">
+
+				<div class="product-tile__center product-tile__image_size_m">
+					<img src="image/sofa/sofa1.jpg" class="product-tile__image" alt="">
+					<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+					<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+				</div>
+
+				<div class="product-tile__footer product-tile__footer_size_m">
+
+					<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+					<div class="product-tile__rating rating">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</div>
+
+					<hr class="product-tile__devider">
+
+					<div class="product-tile__price-old_position price-old">$35.00</div>
+
+					<div class="product-tile__price-new_position price-new">
+						$30.00
+					</div>
+
+					<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- FOOTER -->
+
+	<footer class="footer footer_bg_gray block_margin-t">
+
+		<div class="footer__item container_width_1200 information flex-row">
+
+			<div class="information__item">
+
+				<h2 class="information__heading">INFORMATION</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">About us</a></li>
+					<li class="list__item"><a href="" class="list__link">Privacy</a></li>
+					<li class="list__item"><a href="" class="list__link">Privacy</a></li>
+					<li class="list__item"><a href="" class="list__link">Online support</a></li>
+				</ul>
+
+			</div>
+
+			<div class="information__item">
+
+				<h2 class="information__heading">MY ACCOUNT</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">Login</a></li>
+					<li class="list__item"><a href="" class="list__link">My Cart</a></li>
+					<li class="list__item"><a href="" class="list__link">Wishlist</a></li>
+					<li class="list__item"><a href="" class="list__link">Checkout</a></li>
+				</ul>
+
+			</div>
+
+			<div class="information__item">
+
+				<h2 class="information__heading">PRODUCTS</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">Specials</a></li>
+					<li class="list__item"><a href="" class="list__link">New Products</a></li>
+					<li class="list__item"><a href="" class="list__link">Best Sellers</a></li>
+					<li class="list__item"><a href="" class="list__link">Our Stores</a></li>
+				</ul>
+
+			</div>
+
+			<div class="information__item">
+
+				<h2 class="information__heading">ORDERS</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">Payment options</a></li>
+					<li class="list__item"><a href="" class="list__link">Shipping and delivery</a></li>
+					<li class="list__item"><a href="" class="list__link">Returns</a></li>
+					<li class="list__item"><a href="" class="list__link">Shipping</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="footer__item copyrights">
+
+			<p class="copiryghts__patagraph">©Copyright 2016 Bazar | All Rights Reserved</p>
+
+		</div>
+
+	</footer>
+
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

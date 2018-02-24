@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>BAZAR SHOP</title>
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/jquery-ui.min.css">
+	<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/shop.css">
+	<link rel="stylesheet" href="furniture-css/furniture.css">
+	<link rel="stylesheet" href="../uikit-3.0.0-beta.39/css/uikit.min.css">
+</head>
+
+<body>
+
+	<!-- HEADER -->
+
+	<header class="header">
+
+		<div class="header-top-bar">
+			<div class="container-logged">
+				<a class="container-logged__login" onclick="document.getElementById('loginModal').style.display='block'"><i class="container-logged__icon fa fa-user-o" aria-hidden="true"></i>Login</a>
+				<a class="container-logged__register" onclick="document.getElementById('signUpModal').style.display='block'"><i class="container-logged__icon fa fa-lock" aria-hidden="true"></i>Sign Up</a>
+			</div>
+			<div class="menu-icon" onclick="showMenu();showNav()" id="menuResponsiveButton">
+				<div class="menu-icon__bar1"></div>
+				<div class="menu-icon__bar2"></div>
+				<div class="menu-icon__bar3"></div>
+			</div>
+		</div>
+
+		<!-- LOGIN MODAL -->
+
+		<div class="login-modal" id="loginModal">
+
+			<form class="login-modal__content bounceInDown fadeOutUp">
+
+				<span onclick="document.getElementById('loginModal').style.display='none'" class="login-modal__close modal__close" title="Close Modal">&times;</span>
+
+				<div class="login-modal__user-icon">
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+				</div>
+
+				<div class="login-modal__form-data">
+
+					<input type="text" class="login-modal__uname" placeholder="Your username">
+
+					<input type="text" class="login-modal__password" placeholder="Your password">
+
+					<label class="login-modal__remember">
+					<input type="checkbox" checked="checked" name="remember"> Remember me
+					</label>
+
+					<button type="button" class="login-modal__login-btn">LOGIN</button>
+
+				</div>
+
+			</form>
+
+		</div>
+
+		<!-- SIGN UP MODAl -->
+
+		<div class="sign-up-modal" id="signUpModal">
+
+			<form action="" class="sign-up-modal__content bounceInDown">
+
+				<span onclick="document.getElementById('signUpModal').style.display='none'" class="sign-up-modal__close modal__close" title="Close Modal">&times;</span>
+
+				<h2 class="sign-up-modal__heading font-l">Sign Up</h2>
+
+				<p class="sign-up-modal__paragraph">Please fill in this form to create an account.</p>
+
+				<input type="text" class="sign-up-modal__email" placeholder="Your email">
+
+				<input type="text" class="sign-up-modal__password" placeholder="Your password">
+
+				<input type="text" class="sign-up-modal__password" placeholder="Repeat your password">
+
+				<label class="sign-up-modal__remember">
+				<input type="checkbox" checked="checked" name="remember"> Remember me</label>
+
+				<button type="button" class="sign-up-modal__login-btn">LOGIN</button>
+
+			</form>
+
+		</div>
+
+		<!-- HEADER MAIN BAR -->
+
+		<div class="header-main-bar header-main-bar_theme_black">
+
+			<div class="container font-white  container_width_1200 flex-row">
+
+				<div class="call-number header-main-bar__item_width_170 flex-row">
+					<i class="fa fa-mobile fa-3x call-number__icon" aria-hidden="true"></i>
+					<p class="call-number__item">2300 - 3560 - 222</p>
+				</div>
+
+				<div class="logo header-main-bar__item_width_170">
+					<img src="../image/logo/layer-1.png" alt="" class="logo__img">
+				</div>
+
+				<div class="cart header-main-bar__item_width_170 header-main-bar__item_responsive-width_100 flex-row">
+					<i class="fa fa-2x fa-shopping-basket cart__icon_style_header" aria-hidden="true"></i>
+					<p class="cart__number" id="cartNumber">0</p>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="header-main-nav flex-row header-main-nav_shadow ">
+			<form action="" class="header__form form col-4">
+
+				<input type="text" placeholder="Search products" name="search" class="form__search">
+				<button type="submit" class="form__button"><i class="fa fa-search"></i></button>
+			</form>
+
+			<ul class="main-navigation flex-row col-6" id="mainNav">
+				<li class="main-navigation__item"><a href="../index.html" class="main-navigation__link">home</a></li>
+				<li class="main-navigation__item"><a href="furniture/furniture.html" class="main-navigation__link">furniture</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">chair</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">table</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">sofa</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">bedroom</a></li>
+				<li class="main-navigation__item"><a href="" class="main-navigation__link">blog</a></li>
+			</ul>
+
+		</div>
+
+	</header>
+
+	<!-- SALE HEADER -->
+
+	<div class="sale-header sale-header_bg_bedroom sale-header_size sale-header_margin" uk-parallax="bgy: -200">
+
+		<div class="sale-header__content">
+
+			<h2 class="sale-header__heading font-xl">BEDROOM FURNITURE</h2>
+
+			<p class="sale-header__paragraph font-m ">ALWAYS 25% OFF OR MORE</p>
+
+		</div>
+
+	</div>
+
+	<!-- BREADCRUMB -->
+
+	<div class="breadcrumb-nav container_width_1200 breadcrumb-nav_bg_gray">
+
+		<ul class="breadcrumb-nav__item breadcrumb breadcrumb__item_padding_20">
+
+			<li class="breadcrumb__item breadcrumb__item_color_black"><a href="" class="breadcrumb__link font-black">Home</a></li>
+			<li class="breadcrumb__item breadcrumb__item_color_black"><a href="" class="breadcrumb__link font-black">Furniture</a></li>
+
+		</ul>
+
+	</div>
+
+	<main class="main-content flex-row container_width_1200">
+
+		<div class="main-content__item col-9">
+
+			<!-- HEADER BLOCK -->
+
+			<div class="b-new-furniture__header b-new-furniture__header_border-bottom header flex-row">
+
+				<h2 class="header__heading header__heading_text-style">new furniture</h2>
+				
+				<span class="filter-block__show-icon" onclick="openFilterBlock()"><i class="fa fa-2x fa-filter" aria-hidden="true"></i></span>
+
+				<div class="header__dots dots flex-row">
+
+					<div class="dots__item active-dot"></div>
+					<div class="dots__item"></div>
+					<div class="dots__item"></div>
+
+				</div>
+
+			</div>
+
+			<!-- PRODUCT TILE -->
+
+			<div class="b-new-furniture__main flex-row flex-base-line" uk-scrollspy="target: > div; cls:uk-animation-fade; delay: 300">
+
+				<!-- PRODUCT TILE 1 -->
+
+				<!-- PRODUCT TILE MODAL -->
+
+				<div class="product-tile-modal" id="productTile1">
+
+					<div class="product-tile-modal__content">
+
+						<span onclick="document.getElementById('productTile1').style.display='none'" class="product-modal__close modal__close modal__close_white" title="Close Modal">&times;</span>
+
+						<img src="../image/hot-deals/ASHY-365674.jpg" alt="" class="product-tile-modal__img">
+
+					</div>
+
+				</div>
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s sofa fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/hot-deals/ASHY-365674.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product" onclick="document.getElementById('productTile1').style.display='block'">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+				<!-- PRODUCT TILE 2 -->
+
+				<!-- PRODUCT TILE MODAL 2 -->
+
+				<div class="product-tile-modal" id="productTile2">
+
+					<div class="product-tile-modal__content product-tile-modal__content_width_400">
+
+						<span onclick="document.getElementById('productTile2').style.display='none'" class="product-modal__close modal__close modal__close_white" title="Close Modal">&times;</span>
+
+						<img src="../image/chair/chair2.jpg" class="product-tile-modal__img" alt="img">
+
+					</div>
+				</div>
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s chair fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/chair/chair2.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product" onclick="document.getElementById('productTile2').style.display='block'">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+				<!-- PRODUCT TILE 3 -->
+
+				<!-- PRODUCT TILE MODAL 3 -->
+
+				<div class="product-tile-modal" id="productTile3">
+
+					<div class="product-tile-modal__content product-tile-modal__content_width_400">
+
+						<span onclick="document.getElementById('productTile3').style.display='none'" class="product-modal__close modal__close modal__close_white" title="Close Modal">&times;</span>
+
+						<img src="../image/chair/chair6.jpg" class="product-tile-modal__img" alt="img">
+
+					</div>
+				</div>
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s chair fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/chair/chair6.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product" onclick="document.getElementById('productTile3').style.display='block'">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+				<!-- PRODUCT TILE 4 -->
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s sofa fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/sofa/sofa1.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+
+				<!-- PRODUCT TILE 5 -->
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s bed fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/bed/bed1.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+				<!-- PRODUCT TILE 6 -->
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s table fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/table/table1.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+				<!-- PRODUCT TILE 7 -->
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s bed fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/bed/bed2.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+				<!-- PRODUCT TILE 8 -->
+
+				<div class="product-tile product-tile_hide product-tile_margin_l product-tile_size_s table fade-animation">
+
+					<div class="product-tile__center product-tile__image_size_m">
+						<img src="../image/table/table2.jpg" class="product-tile__image" alt="">
+						<p class="product-tile__add-product_position-for-s add-product add-product__size_s add-product_hidden"><i class="add-product__icon-basket fa fa-shopping-basket font-size-s" aria-hidden="true"></i>add to cart</p>
+						<p class="product-tile__view product-tile__view_position view-product_style view-product_hidden view-product">Quick View</p>
+
+					</div>
+
+					<div class="product-tile__footer product-tile__footer_size_m">
+
+						<h2 class="product-tile__name">Aenean Ru Bristique</h2>
+
+						<!-- RATING -->
+
+						<div class="product-tile__rating rating">
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="1"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="2"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="3"></i>
+							<i class="fa fa-star-o rating__item rating__item_active" aria-hidden="true" data-rate="4"></i>
+							<i class="fa fa-star-o rating__item" aria-hidden="true" data-rate="5"></i>
+						</div>
+
+						<hr class="product-tile__devider">
+
+						<div class="product-tile__price-old_position price-old">$35.00</div>
+
+						<div class="product-tile__price-new_position price-new">
+							$30.00
+						</div>
+
+						<div class="product-tile__like"><i class="fa fa-heart-o product-tile__icon" aria-hidden="true"></i></div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- FILTER BLOCK COLUMN -->
+
+		<div class="main-content__item filter-block col-3" id="filterBlockShow">
+
+			<!-- FILTER BY CATEGORY -->
+
+
+			<div class="filter-block__item filter-block__item_padding" id="filterBlock">
+
+				<h2 class="filter-block__heading">Filter By categories</h2>
+
+				<ul class="filter-menu" id="furnitureContainer">
+
+					<li class="filter-menu__item filter-menu__link_style-for-shop"><a class="filter-menu__button active font-size-s" onclick="filterSelection('all')">Furniture</a></li>
+					<li class="filter-menu__item filter-menu__link_style-for-shop"><a class="filter-menu__button font-size-s" onclick="filterSelection('bed')">Bed</a></li>
+					<li class="filter-menu__item filter-menu__link_style-for-shop"><a class="filter-menu__button font-size-s" onclick="filterSelection('chair')">Chair</a></li>
+					<li class="filter-menu__item filter-menu__link_style-for-shop"><a class="filter-menu__button font-size-s" onclick="filterSelection('sofa')">Sofa</a></li>
+					<li class="filter-menu__item filter-menu__link_style-for-shop"><a class="filter-menu__button font-size-s" onclick="filterSelection('table')">Table</a></li>
+
+				</ul>
+
+			</div>
+
+			<!-- FILTER BLOCK BY FILTER RANGE -->
+
+			<div class="filter-block__item filter-block__item_padding filter-block__item_height_300">
+
+				<h2 class="filter-block__heading">Filter By Price</h2>
+
+				<div class="filter-block__slider-range slider-range slider-range__padding">
+
+					<div class="slider-range__slider" id="slider-range"></div>
+
+					<a class="slider-range__filter-button">Filter</a>
+
+					<p class="slider-range__information">
+						<input class="slider-range__price" type="text" id="amount" readonly>
+					</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- SLIDER -->
+
+		<div class="slider block_margin-t container_width_1200" uk-slider="autoplay: true; autoplay-interval: 4000">
+
+			<div class="uk-position-relative">
+
+				<div class="uk-slider-container">
+
+					<ul class="uk-slider-items uk-child-width-1-4 slider__items">
+
+						<li class="slider__box slider__box_size_s">
+							<img src="../image/furniture-brand-logo/51-stanley-furniture-co-logo.jpg" class="slider__image" alt="">
+						</li>
+
+						<li class="slider__box slider__box_size_s">
+							<img src="../image/furniture-brand-logo/adjectives%20vocab%20HW2.jpg" class="slider__image" alt="">
+						</li>
+
+						<li class="slider__box slider__box_size_s">
+							<img src="../image/furniture-brand-logo/architecturalfurniture.png" class="slider__image" alt="">
+						</li>
+
+						<li class="slider__box slider__box_size_s">
+							<img src="../image/furniture-brand-logo/Furniture-Manufacturers-and-Designers.jpg" class="slider__image" alt="">
+						</li>
+
+						<li class="slider__box slider__box_size_s">
+							<img src="../image/furniture-brand-logo/inT-cover.jpg" class="slider__image" alt="">
+						</li>
+
+						<li class="slider__box slider__box_size_s">
+							<img src="../image/furniture-brand-logo/wl1200hp1200q85_Cotswold_logo_2016_300dpi_square.jpg" class="slider__image" alt="">
+						</li>
+
+					</ul>
+
+
+					<a href="#" class="uk-position-center-left-out uk-dark uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slider-item="previous"></a>
+					<a href="#" class="uk-position-center-right-out uk-dark uk-position-small uk-hidden-hover" uk-slidenav-next uk-slider-item="next"></a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</main>
+
+	<!-- FOOTER -->
+
+	<footer class="footer footer_bg_gray block_margin-t">
+
+		<div class="footer__item container_width_1200 information flex-row">
+
+			<div class="information__item">
+
+				<h2 class="information__heading">INFORMATION</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">About us</a></li>
+					<li class="list__item"><a href="" class="list__link">Privacy</a></li>
+					<li class="list__item"><a href="" class="list__link">Privacy</a></li>
+					<li class="list__item"><a href="" class="list__link">Online support</a></li>
+				</ul>
+
+			</div>
+
+			<div class="information__item">
+
+				<h2 class="information__heading">MY ACCOUNT</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">Login</a></li>
+					<li class="list__item"><a href="" class="list__link">My Cart</a></li>
+					<li class="list__item"><a href="" class="list__link">Wishlist</a></li>
+					<li class="list__item"><a href="" class="list__link">Checkout</a></li>
+				</ul>
+
+			</div>
+
+			<div class="information__item">
+
+				<h2 class="information__heading">PRODUCTS</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">Specials</a></li>
+					<li class="list__item"><a href="" class="list__link">New Products</a></li>
+					<li class="list__item"><a href="" class="list__link">Best Sellers</a></li>
+					<li class="list__item"><a href="" class="list__link">Our Stores</a></li>
+				</ul>
+
+			</div>
+
+			<div class="information__item">
+
+				<h2 class="information__heading">ORDERS</h2>
+				<ul class="information__list list">
+					<li class="list__item"><a href="" class="list__link">Payment options</a></li>
+					<li class="list__item"><a href="" class="list__link">Shipping and delivery</a></li>
+					<li class="list__item"><a href="" class="list__link">Returns</a></li>
+					<li class="list__item"><a href="" class="list__link">Shipping</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="footer__item copyrights">
+
+			<p class="copiryghts__patagraph">©Copyright 2016 Bazar | All Rights Reserved</p>
+
+		</div>
+
+	</footer>
+
+	<script src="../uikit-3.0.0-beta.39/js/uikit.min.js"></script>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/main.js"></script>
+
+</body>
+
+</html>
